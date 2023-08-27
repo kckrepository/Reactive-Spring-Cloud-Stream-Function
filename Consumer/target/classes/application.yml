@@ -1,0 +1,26 @@
+server:
+  port: 8081
+
+spring:
+  cloud:
+    stream:
+      rabbit:
+        bindings:
+          receiverData-in-0:
+            consumer:
+              autoBindDlq: true
+              republishToDlq: true
+              enableDlq: true
+      function:
+        definition: receiverData
+      bindings:
+        receiverData-in-0:
+          destination: scsSampleSuplier
+          group: scsSampleSuplierGroup
+          consumer:
+            partitioned: true
+            instance-index: 0
+            maxAttempts: 3
+            backOffInitialInterval: 500
+            backOffMaxInterval: 1000
+            backOffMultiplier: 2.0

@@ -1,0 +1,14 @@
+server:
+  port: 8080
+
+spring:
+  cloud:
+    stream:
+      function:
+        definition: send
+      bindings:
+        send-out-0:
+          destination: scsSampleSuplier
+          producer:
+            partition-key-expression: headers['partitionKey'] - 1
+            partition-count: 1
