@@ -8,4 +8,4 @@ This is implementation for reactive spring cloud stream, after version 3.X sprin
 
 # Additional
 
-in this implementation, this producer set partition-key-expression, partition-count and also dlq.
+in this implementation, the producer sets partition-key-expression, partition-count and also dlq.
